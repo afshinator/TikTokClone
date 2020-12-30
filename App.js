@@ -25,7 +25,7 @@ const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <Text>Show something</Text>
+      <Text>Show something else</Text>
       <SafeAreaView>
         <Home />
       </SafeAreaView>
