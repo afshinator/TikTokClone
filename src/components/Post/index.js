@@ -16,21 +16,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles';
 
-const post = {
-  user: {username: 'afshin'},
-  description: 'this is oging to be the description so good',
-  song: {
-    name: 'valhalla',
-    imageUri: 'https://homepages.cae.wisc.edu/~ece533/images/boat.png',
-  },
-  likes: 32,
-  comments: 12,
-  shares: 22,
-};
+
 const test =
   'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4';
 
-const Post = () => {
+const Post = (props) => {
+  const [post, setPost] = useState(props.post);
   const [paused, setPaused] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [videoUri, setVideoUri] = useState('');
@@ -41,12 +32,14 @@ const Post = () => {
 
   const onLikePress = () => {
     const likesToAdd = isLiked ? -1 : 1;
-    // setPost({
-    //   ...post,
-    //   likes: post.likes + likesToAdd,
-    // });
+    setPost({
+      ...post,
+      likes: post.likes + likesToAdd,
+    });
     setIsLiked(!isLiked);
   };
+
+
 
   return (
     <View style={styles.container}>
