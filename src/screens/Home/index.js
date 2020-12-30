@@ -1,7 +1,8 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, FlatList, Dimensions} from 'react-native';
 import Post from '../../components/Post';
 
+import posts from '../../../dummyData/posts';
 const post = {
   user: {username: 'afshin'},
   description: 'this is oging to be the description so good',
@@ -14,11 +15,17 @@ const post = {
   shares: 22,
 };
 
-
 const Home = () => {
   return (
     <View>
-      <Post post={post} />
+      <FlatList
+        data={posts}
+        renderItem={({item}) => <Post post={item} />}
+        showsVerticalScrollIndicator={false}
+        snapToInterval={Dimensions.get('window').height -40}  /* TODO */
+        snapToAlignment={"start"}
+        decelerationRate={"fast"}
+      />
     </View>
   );
 };
