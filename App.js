@@ -1,32 +1,16 @@
-/**
-
- */
-
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import 'react-native-gesture-handler';
+import {SafeAreaView, StatusBar} from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import Navigation from './src/navigation';
 import Home from './src/screens/Home';
 
 const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <Home />
+      <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}>
+        <Navigation />
       </SafeAreaView>
     </>
   );
