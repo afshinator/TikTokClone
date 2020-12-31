@@ -22,7 +22,7 @@ const Home = () => {
         data={posts}
         renderItem={({item}) => <Post post={item} />}
         showsVerticalScrollIndicator={false}
-        snapToInterval={Dimensions.get('window').height -40}  /* TODO */
+        snapToInterval={Dimensions.get('window').height -100}  /* TODO */
         snapToAlignment={"start"}
         decelerationRate={"fast"}
       />

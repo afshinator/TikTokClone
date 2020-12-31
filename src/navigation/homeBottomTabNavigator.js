@@ -9,7 +9,7 @@ import {
   faHome,
   faSearch,
   faUser,
-  faShare,
+  faInbox,
 } from '@fortawesome/free-solid-svg-icons';
 
 import plusIcon from '../assets/images/plus-icon.png';
@@ -61,7 +61,7 @@ const HomeBottomTabNavigator = () => {
         component={Home}
         options={{
           tabBarIcon: ({color}) => (
-            <FontAwesomeIcon icon={faUser} size={25} color={color} />
+            <FontAwesomeIcon icon={faInbox} size={25} color={color} />
 
             // <MaterialCommunityIcons
             //   name={'message-minus-outline'}
