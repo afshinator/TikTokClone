@@ -16,10 +16,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles';
 
-
-const test =
-  'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4';
-
 const Post = (props) => {
   const [post, setPost] = useState(props.post);
   const [paused, setPaused] = useState(false);
@@ -39,14 +35,24 @@ const Post = (props) => {
     setIsLiked(!isLiked);
   };
 
+  const getVideoUri = async () => {
+    if (post.videoUri.startsWith('http')) {
+      setVideoUri(post.videoUri);
+      return;
+    }
+    setVideoUri(await Storage.get(post.videoUri));
+  };
 
+  useEffect(() => {
+    getVideoUri();
+  },[]);
 
   return (
     <View style={styles.container}>
       <TouchableWithoutFeedback onPress={onPlayPausePress}>
         <View>
           <Video
-            source={{uri: test}}
+            source={{uri: videoUri}}
             style={styles.video}
             resizeMode={'cover'}
             onError={(e) => console.log('From <Video />', e)}
