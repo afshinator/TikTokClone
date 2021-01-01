@@ -32,6 +32,7 @@ const Post = (props) => {
       ...post,
       likes: post.likes + likesToAdd,
     });
+
     setIsLiked(!isLiked);
   };
 
@@ -46,7 +47,7 @@ const Post = (props) => {
   useEffect(() => {
     getVideoUri();
   },[]);
-
+  console.log('likes: ', post)
   return (
     <View style={styles.container}>
       <TouchableWithoutFeedback onPress={onPlayPausePress}>
@@ -75,7 +76,7 @@ const Post = (props) => {
                   size={40}
                   color={isLiked ? 'red' : 'white'}
                 />
-                <Text style={styles.statsLabel}>{post.likes}</Text>
+
               </TouchableOpacity>
 
               <View style={styles.iconContainer}>
